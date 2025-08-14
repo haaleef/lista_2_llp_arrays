@@ -1,0 +1,42 @@
+<script>
+  const gabarito = []
+  const numerosDosAlunos = []
+  const provasDosAlunos = []
+  const notasDosAlunos = []
+
+  for (let x = 0; x < 8; x++) {
+    let respostaDaQuestao = prompt(`Digite o gabarito da prova\nQuestão ${x + 1} (A, B, C, D):`).toUpperCase()
+    gabarito.push(respostaDaQuestao)
+  }
+  
+  for (let x = 1; x < 11; x++) {
+    let numeroDoAluno = parseInt(prompt('Digite o número do aluno: '))
+    numerosDosAlunos.push(numeroDoAluno)
+
+    
+    const respotasDoAluno = []
+
+    for (let y = 1; y < 9; y++) {
+
+      let respostaDoAluno = prompt(`Respotas do aluno de número: ${numeroDoAluno}\nDigite a respota da ${y}ª questão (A, B, C, D):`).toUpperCase()
+      respotasDoAluno.push(respostaDoAluno)
+    }
+    provasDosAlunos.push(respotasDoAluno)
+  }
+
+  for (let x = 0; x < numerosDosAlunos.length; x++) {
+    let nota = 0
+
+    for (let y = 0; y <= provasDosAlunos.length; y++) {
+      if (provasDosAlunos[x][y] === gabarito[y]) {
+        nota++
+      }
+    }
+    notasDosAlunos.push([numerosDosAlunos[x], nota])
+  }
+  
+  console.log('Número do aluno - Nota')
+  for (let x = 0; x < notasDosAlunos.length; x++) {
+    console.log(`Aluno nº${notasDosAlunos[x][0]}: ${notasDosAlunos[x][1]}`)
+  }
+</script>

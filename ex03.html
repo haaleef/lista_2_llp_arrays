@@ -1,0 +1,45 @@
+<script>
+  
+  let vetor = [];
+  let i = 0;
+
+  while (i < 9) {
+      let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+      vetor.push(numeroAleatorio);
+      i++;
+  }
+
+  console.log("Vetor gerado:", vetor);
+
+  i = 0;
+  let encontrouPrimo = false;
+
+  while (i < vetor.length) {
+      let numero = vetor[i];
+      let primo = true;
+
+      if (numero < 2) {
+          primo = false;
+      } else {
+          let divisor = 2;
+          while (divisor <= Math.sqrt(numero)) {
+              if (numero % divisor === 0) {
+                  primo = false;
+                  break;
+              }
+              divisor++;
+          }
+      }
+
+      if (primo) {
+          console.log(`Número primo ${numero} na posição ${i}`);
+          encontrouPrimo = true;
+      }
+
+      i++;
+  }
+
+  if (!encontrouPrimo) {
+      console.log("Nenhum número primo foi gerado.");
+  }
+</script>

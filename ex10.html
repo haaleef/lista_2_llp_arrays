@@ -1,0 +1,39 @@
+<script>
+  let vetor1 = []
+  let vetor2 = []
+  let i = 0
+
+  while (i < 10) {
+      vetor1.push(parseInt(prompt("Digite um número para o primeiro vetor:")))
+      i++
+  }
+
+  i = 0
+  while (i < 5) {
+      vetor2.push(parseInt(prompt("Digite um número para o segundo vetor:")))
+      i++
+  }
+
+  console.log("Num", ...vetor1)
+  console.log("Pos", ...vetor1.map((_, idx) => idx + 1))
+  console.log("Divis", ...vetor2)
+  console.log("Pos", ...vetor2.map((_, idx) => idx + 1))
+
+  i = 0
+  while (i < vetor1.length) {
+      console.log("Número", vetor1[i])
+      let encontrou = false
+      let j = 0
+      while (j < vetor2.length) {
+          if (vetor1[i] % vetor2[j] === 0) {
+              console.log("Divisível por", vetor2[j], "na posição", j + 1)
+              encontrou = true
+          }
+          j++
+      }
+      if (!encontrou) {
+          console.log("Não possui divisores no segundo vetor")
+      }
+      i++
+  }
+</script>

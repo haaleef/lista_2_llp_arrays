@@ -1,0 +1,38 @@
+<script>
+  function calcularNotas() {
+  const alunos = []
+  const medias = []
+  const numAlunos = 7
+
+  for (let i = 0; i < numAlunos; i++) {
+    const nome = prompt(`Digite o nome do aluno ${i + 1}`)
+    alunos.push(nome)
+    const media = parseFloat(prompt(`Digite a média final de ${nome}`))
+    medias.push(media)
+  }
+
+  let maiorMedia = medias[0]
+  let nomeMaiorMedia = alunos[0]
+
+  for (let i = 1; i < numAlunos; i++) {
+    if (medias[i] > maiorMedia) {
+      maiorMedia = medias[i]
+      nomeMaiorMedia = alunos[i]
+    }
+  }
+
+  console.log(`O aluno com a maior média é: ${nomeMaiorMedia} com média ${maiorMedia.toFixed(2)}`)
+  console.log("---")
+
+  for (let i = 0; i < numAlunos; i++) {
+    if (medias[i] < 7) {
+      const notaExame = 10 - medias[i]
+      console.log(`${alunos[i]} está com média ${medias[i].toFixed(2)}`)
+      console.log(`Precisa tirar ${notaExame.toFixed(2)} no exame final para ser aprovado`)
+      console.log("---")
+    }
+  }
+}
+
+  calcularNotas()
+</script>

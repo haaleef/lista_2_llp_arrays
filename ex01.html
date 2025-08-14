@@ -1,0 +1,13 @@
+<script>
+  const modelosCarros = ['Fusca', 'Gol', 'Vectra', 'Sedan', 'picape']
+  const kmPorLitro = [8, 13, 7, 9, 14]
+
+  let modeloMaisEconomico = modelosCarros[kmPorLitro.indexOf(Math.max(...kmPorLitro))]
+  let kmPorLitroMaisEconomico = Math.max(...kmPorLitro)
+
+  console.log(`O modelo mais econômico é o(a) ${modeloMaisEconomico}, consumindo ${kmPorLitroMaisEconomico}Km/L `)
+  console.log('Quantidade de litros necessárias que cada modelo precisa pra percorrer 1.000 Km')
+  for (let x = 0; x < modelosCarros.length; x++) {
+    console.log(`${modelosCarros[x]}: ${(1000 / kmPorLitro[x]).toFixed(2)}L`)
+  }
+</script>

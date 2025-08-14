@@ -1,0 +1,37 @@
+<script>
+  let codigos = []
+  let estoques = []
+  let i = 0
+
+  while (i < 10) {
+      codigos.push(i + 1)
+      estoques.push(Math.floor(Math.random() * 20) + 1)
+      i++
+  }
+
+  while (true) {
+      let cliente = parseInt(prompt("Código do cliente (0 para sair):"))
+      if (cliente === 0) break
+
+      let produto = parseInt(prompt("Código do produto:"))
+      let quantidade = parseInt(prompt("Quantidade desejada:"))
+
+      let indice = codigos.indexOf(produto)
+      if (indice === -1) {
+          alert("Código inexistente")
+      } else {
+          if (quantidade > estoques[indice]) {
+              alert("Não temos estoque suficiente dessa mercadoria")
+          } else {
+              estoques[indice] -= quantidade;
+              alert("Pedido atendido. Obrigado e volte sempre")
+          }
+      }
+  }
+
+  console.log("Estoque atualizado:")
+  for (let j = 0; j < codigos.length; j++) {
+      console.log(`Produto ${codigos[j]}: ${estoques[j]} unidades`)
+  }
+       
+</script>

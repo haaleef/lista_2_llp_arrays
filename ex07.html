@@ -1,0 +1,43 @@
+<script>
+    const produtos = [
+        { nome: 'Produto A', codigo: 101, preco: 950.00 },
+        { nome: 'Produto B', codigo: 102, preco: 1200.00 },
+        { nome: 'Produto C', codigo: 103, preco: 800.00 },
+        { nome: 'Produto D', codigo: 104, preco: 1500.00 },
+        { nome: 'Produto E', codigo: 105, preco: 1100.00 },
+        { nome: 'Produto F', codigo: 106, preco: 600.00 },
+        { nome: 'Produto G', codigo: 107, preco: 2000.00 },
+        { nome: 'Produto H', codigo: 108, preco: 900.00 },
+        { nome: 'Produto I', codigo: 109, preco: 950.00 },
+        { nome: 'Produto J', codigo: 110, preco: 2500.00 }
+    ]
+
+    function gerarRelatorio() {
+        console.log("Relatório de Produtos com Aumento:")
+
+        produtos.forEach(produto => {
+            let aumento = 0
+            let novoPreco = produto.preco
+
+            if (produto.codigo % 2 === 0 && produto.preco > 1000) {
+                aumento = 0.20
+            } else if (produto.codigo % 2 === 0) {
+                aumento = 0.15 
+            } else if (produto.preco > 1000) {
+                aumento = 0.10 
+            }
+
+            if (aumento > 0) {
+                novoPreco = produto.preco * (1 + aumento)
+                
+                console.log(`Produto: ${produto.nome}`)
+                console.log(`Código: ${produto.codigo}`)
+                console.log(`Preço atual: R$ ${produto.preco.toFixed(2)}`)
+                console.log(`Novo preço: R$ ${novoPreco.toFixed(2)}`)
+                console.log('---')
+            }
+        })
+    }
+
+    gerarRelatorio()
+</script>

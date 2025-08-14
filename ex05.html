@@ -1,0 +1,53 @@
+<script>
+  function calcularComissoes() {
+    const numVendedores = 10
+    let nomes = []
+    let vendas = []
+    let comissoesPercentual = []
+    let comissoesValor = []
+
+    for (let i = 0; i < numVendedores; i++) {
+      let nome = prompt(`Digite o nome do vendedor ${i + 1}:`)
+      nomes.push(nome)
+
+      let venda = parseFloat(prompt(`Digite o total de vendas do(a) ${nome}:`))
+      vendas.push(venda)
+
+      let percentual = parseFloat(prompt(`Digite o percentual de comissão do(a) ${nome} (ex: 10 para 10%):`))
+      comissoesPercentual.push(percentual)
+
+      let valorComissao = (venda * percentual) / 100
+      comissoesValor.push(valorComissao)
+    }
+
+    console.log("--- Relatório de Comissões ---")
+    for (let i = 0; i < numVendedores; i++) {
+      console.log(`Vendedor: ${nomes[i]} | Comissão a receber: R$ ${comissoesValor[i].toFixed(2)}`)
+    }
+
+    const totalVendas = vendas.reduce((acc, curr) => acc + curr, 0)
+    console.log(`\n--- Total de Vendas ---`)
+    console.log(`O total de vendas de todos os vendedores é: R$ ${totalVendas.toFixed(2)}`)
+
+    let maiorComissao = comissoesValor[0]
+    let menorComissao = comissoesValor[0]
+    let nomeMaiorComissao = nomes[0]
+    let nomeMenorComissao = nomes[0]
+    for (let i = 1; i < numVendedores; i++) {
+      if (comissoesValor[i] > maiorComissao) {
+        maiorComissao = comissoesValor[i]
+        nomeMaiorComissao = nomes[i]
+      }
+      if (comissoesValor[i] < menorComissao) {
+        menorComissao = comissoesValor[i]
+        nomeMenorComissao = nomes[i]
+      }
+    }
+
+    console.log(`\n--- Destaques da Comissão ---`)
+    console.log(`O maior valor a receber é R$ ${maiorComissao.toFixed(2)}, do(a) vendedor(a) ${nomeMaiorComissao}.`)
+    console.log(`O menor valor a receber é R$ ${menorComissao.toFixed(2)}, do(a) vendedor(a) ${nomeMenorComissao}.`)
+}
+
+  calcularComissoes()
+</script>

@@ -1,0 +1,27 @@
+<script>
+    const funcionarios = ['João', 'Maria', 'Pedro', 'Ana', 'Carlos']
+    const salarios = [750, 1200, 650, 950, 700]
+    const tempos = [6, 3, 7, 2, 5]
+
+    function gerarRelatorio() {
+        console.log('Relatório de Funcionários Sem Aumento:')
+        funcionarios.forEach((funcionario, index) => {
+            let aumento = 0
+            if (tempos[index] <= 5 && salarios[index] >= 800) {
+                console.log(funcionario)
+            } else {
+                let novoSalario = salarios[index]
+                if (tempos[index] > 5 && salarios[index] < 800) {
+                    aumento = 0.35
+                } else if (tempos[index] > 5) {
+                    aumento = 0.25
+                } else if (salarios[index] < 800) {
+                    aumento = 0.15
+                }
+                novoSalario = salarios[index] * (1 + aumento)
+                console.log(`Nome: ${funcionario} Novo Salário: R$ ${novoSalario.toFixed(2)}`)
+            }
+        })
+    }
+    gerarRelatorio()
+</script>
